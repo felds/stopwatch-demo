@@ -1,33 +1,44 @@
-.App {
-  text-align: center;
+html {
+  box-sizing: border-box;
+}
+* {
+  box-sizing: inherit;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/**
+ * Countdown
+ *
+ * Inspired by Daily UI 014 - Countdown Timer by Caroline
+ * https://dribbble.com/shots/5755661-Daily-UI-014-Countdown-Timer
+ */
+.cd {
+  font-family: menlo;
+  width: 30rem;
+  margin: 8rem auto;
+  background-color: teal;
+  color: #fff;
+  padding: 5rem;
+  box-shadow: 0 2rem 2rem -0.5rem #00000070;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cd__display {
+  --size: 20rem;
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto 6rem;
+  border-radius: 50%;
+  border: 10px solid #ffffff20;
+  /* centralize */
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.cd__time {
+  font-size: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cd__ms {
+  font-size: 24px;
+  opacity: 0.5;
 }
