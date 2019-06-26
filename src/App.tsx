@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import StopWatch, { StopWatchChildren } from "stopwatch";
+import React from "react";
+import StopWatch, { StopWatchChildren } from "@felds/stopwatch";
 import "./App.css";
 
 const RenderFunction: StopWatchChildren = ({
