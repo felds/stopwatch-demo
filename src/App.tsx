@@ -36,14 +36,6 @@ const RenderFunction: StopWatchChildren = ({
 };
 
 function App() {
-  const [time, setTime] = useState(0);
-
-  const handleChange = (newTime: number) => {
-    const diff = newTime - time;
-    console.log(`Difference in time: ${diff.toFixed(5)}`);
-    setTime(newTime);
-  };
-
   return (
     <div>
       <StopWatch children={RenderFunction} />
