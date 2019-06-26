@@ -2,34 +2,36 @@ import React, { useState } from "react";
 import StopWatch, { StopWatchChildren } from "stopwatch";
 import "./App.css";
 
-const StopWatchRender: StopWatchChildren = ({
+const RenderFunction: StopWatchChildren = ({
   value,
   toggle,
-  play,
-  pause,
   stop,
-  isFinished,
   isRunning,
 }) => {
+  const sec = Math.floor(value / 1000);
+  const s = sec % 60;
+  const m = Math.floor(sec / 60);
+  const ms = Math.floor(value % 1000);
+
   return (
-    <dl>
-      <dt>Elapsed</dt>
-      <dd> {(value / 1000).toFixed(5)}</dd>
+    <div className="cd">
+      <div className="cd__display">
+        <div className="cd__time">
+          <span className="cd__m">{`00${m}`.substr(-2)}</span>:
+          <span className="cd__s">{`00${s}`.substr(-2)}</span>
+          <span className="cd__ms">.{`000${ms}`.substr(-3)}</span>
+        </div>
+      </div>
 
-      <dt>Is running?</dt>
-      <dd>{isRunning ? "T" : "F"}</dd>
-
-      <dt>Is finished</dt>
-      <dd>{isFinished ? "T" : "F"}</dd>
-
-      <dt>Actions</dt>
-      <dd>
-        <button onClick={play}>play</button>
-        <button onClick={pause}>pause</button>
-        <button onClick={toggle}>toggle</button>
-        <button onClick={stop}>stop</button>
-      </dd>
-    </dl>
+      <div className="cd__actions">
+        <button className="cd__action cd__action--toggle" onClick={toggle}>
+          {isRunning ? "Pause" : "Play"}
+        </button>
+        <button className="cd__action cd__action--stop" onClick={stop}>
+          Stop
+        </button>
+      </div>
+    </div>
   );
 };
 
@@ -44,27 +46,7 @@ function App() {
 
   return (
     <div>
-      <div className="cd">
-        <div className="cd__display">
-          <div className="cd__time">
-            <span className="cd__m">00</span>:<span className="cd__s">00</span>
-            <span className="cd__ms">.000</span>
-          </div>
-        </div>
-
-        <div className="cd__actions">
-          <button className="cd__toggle">Toggle</button>
-          <button className="cd__stop">Stop</button>
-        </div>
-      </div>
-
-      <StopWatch
-        initialValue={1000}
-        children={StopWatchRender}
-        onFinish={() => alert("CABO")}
-        duration={3000}
-        onChange={handleChange}
-      />
+      <StopWatch children={RenderFunction} />
     </div>
   );
 }

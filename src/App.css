@@ -1,5 +1,6 @@
-html {
+:root {
   box-sizing: border-box;
+  background-color: whitesmoke;
 }
 * {
   box-sizing: inherit;
@@ -15,10 +16,12 @@ html {
   font-family: menlo;
   width: 30rem;
   margin: 8rem auto;
-  background-color: teal;
+  background-color: #0f1b37;
+  background: radial-gradient(#56368a, #21395c);
   color: #fff;
   padding: 5rem;
   box-shadow: 0 2rem 2rem -0.5rem #00000070;
+  border-radius: 3px;
 }
 
 .cd__display {
@@ -28,7 +31,6 @@ html {
   margin: 0 auto 6rem;
   border-radius: 50%;
   border: 10px solid #ffffff20;
-  /* centralize */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,5 +42,47 @@ html {
 
 .cd__ms {
   font-size: 24px;
+  opacity: 0.5;
+}
+
+.cd__actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "esq meio dir";
+  align-items: center;
+  text-align: center;
+}
+
+.cd__action {
+  --size: 5em;
+  outline: none;
+  appearance: none;
+  margin: 0 auto;
+  widows: auto;
+  border: none;
+  font: inherit;
+  border-radius: 50%;
+  width: var(--size);
+  height: var(--size);
+  background-color: #fff;
+  color: #21395c;
+  cursor: pointer;
+  transition: 250ms all;
+}
+
+.cd__action:hover,
+.cd__action:focus {
+  opacity: 1;
+  color: #e256db;
+}
+
+.cd__action--toggle {
+  font-size: 18px;
+  grid-area: meio;
+}
+
+.cd__action--stop {
+  font-size: 12px;
+  grid-area: dir;
   opacity: 0.5;
 }
