@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d4de9ba9df17e244f37b01b0995df5c2",
+    "revision": "ede24e146418e1d4584029587f552c62",
     "url": "/stopwatch-demo/index.html"
   },
   {
